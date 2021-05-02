@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		072FE473263A5AE600ECA3B3 /* MessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072FE472263A5AE600ECA3B3 /* MessageEntity.swift */; };
-		072FE47C263A5C6300ECA3B3 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072FE47A263A5C6300ECA3B3 /* MessageTableViewCell.swift */; };
-		072FE47D263A5C6300ECA3B3 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072FE47B263A5C6300ECA3B3 /* MessageTableViewCell.xib */; };
+		0764C88F263EB15D00FB9E9C /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0764C88D263EB15D00FB9E9C /* MessageTableViewCell.swift */; };
+		0764C890263EB15D00FB9E9C /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0764C88E263EB15D00FB9E9C /* MessageTableViewCell.xib */; };
 		0789EFD72637B0F80012AB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0789EFD62637B0F80012AB0D /* AppDelegate.swift */; };
 		0789EFD92637B0F80012AB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0789EFD82637B0F80012AB0D /* SceneDelegate.swift */; };
 		0789EFDB2637B0F80012AB0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0789EFDA2637B0F80012AB0D /* ViewController.swift */; };
@@ -25,8 +25,8 @@
 
 /* Begin PBXFileReference section */
 		072FE472263A5AE600ECA3B3 /* MessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEntity.swift; sourceTree = "<group>"; };
-		072FE47A263A5C6300ECA3B3 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageTableViewCell.swift; path = ../../../../../MessageTableViewCell.swift; sourceTree = "<group>"; };
-		072FE47B263A5C6300ECA3B3 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MessageTableViewCell.xib; path = ../../../../../MessageTableViewCell.xib; sourceTree = "<group>"; };
+		0764C88D263EB15D00FB9E9C /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		0764C88E263EB15D00FB9E9C /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		0789EFD32637B0F80012AB0D /* Chat-IOS-Assignment-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat-IOS-Assignment-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0789EFD62637B0F80012AB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0789EFD82637B0F80012AB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,11 +56,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		072FE479263A5C4A00ECA3B3 /* cells */ = {
+		0764C88C263EB13D00FB9E9C /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				072FE47A263A5C6300ECA3B3 /* MessageTableViewCell.swift */,
-				072FE47B263A5C6300ECA3B3 /* MessageTableViewCell.xib */,
+				0764C88D263EB15D00FB9E9C /* MessageTableViewCell.swift */,
+				0764C88E263EB15D00FB9E9C /* MessageTableViewCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -121,7 +121,7 @@
 		0789EFED2637B17D0012AB0D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				072FE479263A5C4A00ECA3B3 /* cells */,
+				0764C88C263EB13D00FB9E9C /* cells */,
 				0789EFDC2637B0F80012AB0D /* Main.storyboard */,
 			);
 			path = View;
@@ -213,7 +213,7 @@
 			files = (
 				0789EFE32637B0F90012AB0D /* LaunchScreen.storyboard in Resources */,
 				07B4AA01263809E60007D5D9 /* GoogleService-Info.plist in Resources */,
-				072FE47D263A5C6300ECA3B3 /* MessageTableViewCell.xib in Resources */,
+				0764C890263EB15D00FB9E9C /* MessageTableViewCell.xib in Resources */,
 				0789EFE02637B0F90012AB0D /* Assets.xcassets in Resources */,
 				0789EFDE2637B0F80012AB0D /* Main.storyboard in Resources */,
 			);
@@ -273,7 +273,7 @@
 				0789EFF12637B3AC0012AB0D /* LoginViewController.swift in Sources */,
 				0789EFDB2637B0F80012AB0D /* ViewController.swift in Sources */,
 				0789EFD72637B0F80012AB0D /* AppDelegate.swift in Sources */,
-				072FE47C263A5C6300ECA3B3 /* MessageTableViewCell.swift in Sources */,
+				0764C88F263EB15D00FB9E9C /* MessageTableViewCell.swift in Sources */,
 				0789EFF42637B3BA0012AB0D /* ChatViewController.swift in Sources */,
 				0789EFD92637B0F80012AB0D /* SceneDelegate.swift in Sources */,
 			);

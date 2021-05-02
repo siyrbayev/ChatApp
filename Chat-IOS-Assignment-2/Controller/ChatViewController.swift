@@ -25,10 +25,10 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true)
         fetchMessagesFromFirebase()
         configureMesssageTableView()
         configureMessageTextField()
-        
     }
     
     @IBAction func presstakeImageButton(_ sender: Any) {
@@ -58,7 +58,7 @@ class ChatViewController: UIViewController {
     
 }
 
-// MARK ChatViewController
+/// MARK ChatViewController
 extension ChatViewController {
     
     private func randomString(length: Int) -> String {
@@ -129,7 +129,7 @@ extension ChatViewController {
             }
             sendButton.isEnabled = true
             takeImageButton.isEnabled = true
-            takeImageButton.tintColor = .darkGray
+            takeImageButton.tintColor = .black
             
         }
     }
@@ -155,35 +155,58 @@ extension ChatViewController {
             messageTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
-    
-    private func sendImageToFirebase(image: UIImage){
-        print("fireBase")
-    }
 }
 
-// MARK UITextFieldDelegate
+/// MARK UITextFieldDelegate
 extension ChatViewController: UITextFieldDelegate {
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.view.setNeedsLayout()
-        UIView.animate(withDuration: 0.2) { [self] in
-            containerViewHeightConstraint.constant = 50 + 250
+        defer {
             scrollToLastMessageCell()
+        }
+        self.view.setNeedsLayout()
+        UIView.animate(withDuration: 0.3) { [self] in
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+//                "iPhone 5 or 5S or 5C"
+                containerViewHeightConstraint.constant = 50 + 253
+            case 1334:
+//                "iPhone 6/6S/7/8"
+                containerViewHeightConstraint.constant = 50 + 260
+            case 1920, 2208:
+//                "iPhone 6+/6S+/7+/8+"
+                containerViewHeightConstraint.constant = 50 + 271
+            case 2436:
+//                "iPhone X/XS/11 Pro"
+                containerViewHeightConstraint.constant = 50 + 300
+            case 2688:
+//                "iPhone XS Max/11 Pro Max"
+                containerViewHeightConstraint.constant = 50 + 320
+            case 1792:
+//                "iPhone XR/ 11 "
+                containerViewHeightConstraint.constant = 50 + 310
+            default:
+                containerViewHeightConstraint.constant = 50 + 300
+                print("Unknown")
+            }
             view.setNeedsLayout()
         }
+        
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
+        defer {
+            scrollToLastMessageCell()
+        }
         self.view.setNeedsLayout()
-        UIView.animate(withDuration: 0.2) { [self] in
+        UIView.animate(withDuration: 0.3) { [self] in
             containerViewHeightConstraint.constant = 50
             view.setNeedsLayout()
         }
-        scrollToLastMessageCell()
     }
 }
 
-// MARK UITableViewDelegate, UITableViewDataSource
+/// MARK UITableViewDelegate, UITableViewDataSource
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
@@ -196,15 +219,17 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+/// MARK UIImagePickerControllerDelegate
 extension ChatViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{return}
-            takeImageButton.tintColor = .systemBlue
-            uploadImageToFireStore(selectedImage)
+        takeImageButton.tintColor = .systemBlue
+        uploadImageToFireStore(selectedImage)
     }
 }
 
+/// UINavigationControllerDelegate
 extension ChatViewController: UINavigationControllerDelegate {
     
 }
