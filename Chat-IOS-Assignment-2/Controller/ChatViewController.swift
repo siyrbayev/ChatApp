@@ -49,11 +49,11 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func pressSendButton(_ sender: Any) {
-        if messageTextField.text != "" || pickedImageURL != "" {
-            sendMessageToFirebase()
-        }else{
+        guard messageTextField.text != "" || pickedImageURL != "" else {
             print("Nothing to upload")
+            return
         }
+        sendMessageToFirebase()
     }
     
 }
@@ -111,7 +111,6 @@ extension ChatViewController {
     private func sendMessageToFirebase() {
         var messageDict = ["message" : "", "imageURL" : "", "sender" : ""]
         guard let email = Auth.auth().currentUser?.email else {return}
-        
         messageDict["sender"] = email
         if let message = messageTextField.text {
             messageDict["message"] = message
@@ -130,7 +129,7 @@ extension ChatViewController {
             sendButton.isEnabled = true
             takeImageButton.isEnabled = true
             takeImageButton.tintColor = .black
-            
+            scrollToLastMessageCell()
         }
     }
     
@@ -161,9 +160,6 @@ extension ChatViewController {
 extension ChatViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        defer {
-            scrollToLastMessageCell()
-        }
         self.view.setNeedsLayout()
         UIView.animate(withDuration: 0.3) { [self] in
             switch UIScreen.main.nativeBounds.height {
@@ -195,9 +191,6 @@ extension ChatViewController: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        defer {
-            scrollToLastMessageCell()
-        }
         self.view.setNeedsLayout()
         UIView.animate(withDuration: 0.3) { [self] in
             containerViewHeightConstraint.constant = 50

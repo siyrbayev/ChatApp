@@ -42,6 +42,7 @@ class MessageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.setNeedsDisplay()
         selectionStyle = .none
         containerView.layer.cornerRadius = 8
         containerView.layer.masksToBounds = false
